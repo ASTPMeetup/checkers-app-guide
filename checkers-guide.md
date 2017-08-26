@@ -75,7 +75,7 @@ Our board so far:
 7
 ```
 
-##### *The code above is a brief explaination of some the boilerplate code already in your app. This requires no extra work on your part.*
+##### *The code above is a brief explaination of some boilerplate code already in your app. This requires no extra work on your part.*
 
 
 ### Spec 2.1 - Let's create some checkers put them on the board
