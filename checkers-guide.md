@@ -46,6 +46,7 @@ The [separation of concerns](https://en.wikipedia.org/wiki/Separation_of_concern
 A `Checker` piece has one concern, its symbol. We can use [unicode characters](http://jrgraphix.net/r/Unicode/25A0-25FF) with the JavaScript `String.fromCharCode(0x1<unicode>)` method. The symbol that is assigned is based on what color (`'white'` or `'black'`) the checker will be. Let's pass in the `color` as an argument, `function Checker(color) { ... ` and set the `Checker` instance's `this.symbol`. `if` the `color` is `'white`, set `this.symbol` equal to `String.fromCharCode(0x125CB)`, otherwise set it equal to `String.fromCharCode(0x125CF)`.
 
 ## Spec 2 - Build the `Board` class
+
 Your `Board` class should already have a few methods and an attribute. The attribute `this.grid` will hold our `Checker` instances (pieces) in a two dimensional array making up rows and columns. We could manually build the array which would look something like this:
 ```javascript
 [
@@ -73,6 +74,9 @@ Our board so far:
 6
 7
 ```
+
+##### *The code above is a brief explaination of some the boilerplate code already in your app. This requires no extra work on your part.*
+
 
 ### Spec 2.1 - Let's create some checkers put them on the board
 In your `Checker` class, create an attribute called `this.checkers` and assign it to an empty array. This will be your repository of checker pieces. Now create a method called `this.createCheckers`. In it, let's define our starting positions of the checkers on the grid. In local `var`iables, define `whitePositions` and `blackPositions` as array of `[row, column]` coordinates:
@@ -111,7 +115,7 @@ If done correctly, you should see your board populated with checkers!
 ### Spec 2.2 - Moving a checker
 In your `Board` class, write a method `this.selectChecker` that takes two arguments `row`, `column`. All this does is `return` the checker at that particular spot on `this.grid`. This will be a handy "helper" function.
 
-Next, in your `Game` class, create a `this.moveChecker` method that takes two parameters `start`, `end`. These two arguments will each contain a `row` and a `column`, eg. `50`, `41`. Inside the method, use your board helper method `selectChecker` to select the checker at your `start`ing `rowcolumn`coordinates and set it to a local `var`iable `checker`. Then set that spot on the grid to `null` and set the spot at the `end` `rowcolumn` coordinate to the `checker`.
+Next, in your `Game` class, create a `this.moveChecker` method that takes two parameters `start`, `end`. These two arguments will each contain a `row` and a `column`, eg. `50`, `41`. Inside the method, use your board helper method `selectChecker` to select the checker at your `start`ing `row column`coordinates and set it to a local `var`iable `checker`. Then set that spot on the grid to `null` and set the spot at the `end` `row column` coordinate to the `checker`.
 
 You should be able to move checkers around on the board now!
 ```
@@ -128,7 +132,7 @@ prompt: to where?:  41
 6   ●   ●   ●   ●
 7 ●   ●   ●   ●
 ```
-THIS IS INTENSE
+INTENSE!
 
 ## Spec 3 - Killing a checker
 In your `Board` class, write a method `killChecker` that take a single argument `position` which is a coordinate pair, eg. `[0, 5]`. In it, use `this.selectChecker` to grab the checker at the position given. Find the index of that checker in the `this.checkers` array. then remove it by [`.splice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)ing it out.
